@@ -46,6 +46,9 @@ class indexer:
 		ret = ""
 		ret+="""<!DOCTYPE html><html>"""
 		ret+="<div>"
+		files = [f for f in os.listdir('.') if os.path.isfile(f) and f.split(".")[len(f.split("."))-1]=="html"]
+		for t in files:
+			ret+="<a href ="+self.refPrep()+"/"+self.fprep(t)+">"+self.fprep(t)+"</a><br>\n"
 		folders = [f for f in os.listdir(".") if not os.path.isfile(f)]
 		for k in folders:
 			if(k.__contains__(".")):
